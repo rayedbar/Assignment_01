@@ -45,20 +45,21 @@ public class Main {
             String line = null;
             while ((line = reader.readLine()) != null){
                 if (containsUri(line)){
-                    //gOrP(line);
-                    System.out.println(1);
-                    Tester(line);
+                    countGorP(line);
+
+                    //System.out.println(1);
+                    //Tester(line);
                 }
 //                String uri = getURI(line);
 //                if (uri.contains(input)){
-//                    gOrP(line);
+//                    countGorP(line);
 //                    //break;
 //                } else {
 //                    continue;
 //                }
                 //uriTester(line);
             }
-            //System.out.println(number_get);
+            System.out.println(number_get);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -79,31 +80,30 @@ public class Main {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(line);
         if (m.find()){
-            System.out.println(m.group());
+            System.out.println(m.group(1));
         }
     }
 
     private boolean containsUri(String line) {
         String regex = "\\[" + uri + "\\]";
-
-        boolean b = Pattern.matches(regex, line);
-        System.out.println(b);
-        return b;
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(line);
+        return matcher.find() ? true : false;
     }
 
 
-    private void gOrP(String line) {
+    private void countGorP(String line) {
         String regex = "\\s[GP]";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(line);
         if (m.find()){
             String s = m.group().trim();
-            System.out.println(s);
-//            if (s.equals("G")){
-//                number_get++;
-//            } else {
-//                number_post++;
-//            }
+            //System.out.println(s);
+            if (s.equals("G")){
+                number_get++;
+            } else {
+                number_post++;
+            }
             //System.out.println(1);
         }
     }
