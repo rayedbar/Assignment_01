@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Rayed Bin Wahed on 10/3/16.
@@ -7,16 +10,34 @@ import java.io.*;
  */
 
 public class Main {
+
+    private String url;
+    private Scanner sc;
+
+    private static final String REGEX_HOUR = "\\d{2}:\\d{2}:\\d{2}";
+    private static final String REGEX_URI = "URI\\=\\[.*\\]";
+
     public static void main(String [] args){
+        new Main().go();
+    }
+
+    public Main() {
+        sc = new Scanner(System.in);
+    }
+
+    private void go() {
+        System.out.println("Enter url");
+        //url = sc.nextLine().trim();
+
         BufferedReader reader = null;
         BufferedWriter writer = null;
+
         try {
-            reader = new BufferedReader(new FileReader("log.txt"));
-            writer = new BufferedWriter(new FileWriter("out.txt"));
+            reader = new BufferedReader(new FileReader("sample.log"));
+            writer = new BufferedWriter(new FileWriter("out.log"));
             String line = null;
             while ((line = reader.readLine()) != null){
-                writer.write(line);
-                writer.newLine();
+                process(line);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -29,6 +50,15 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+
+    }
+
+    private void process(String line) {
+        Pattern p = Pattern.compile(REGEX_URI);
+        Matcher m = p.matcher(line);
+        while(m.find()){
+            System.out.println(m.group());
         }
     }
 }
