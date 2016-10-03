@@ -11,12 +11,13 @@ import java.util.regex.Pattern;
 
 public class Main {
 
-    private String url;
+    private String uri;
     private Scanner sc;
 
     private static final String REGEX_HOUR = "\\d{2}:\\d{2}:\\d{2}";
-    private static final String REGEX_URI = "URI\\=\\[.*\\]";
-    //private static final String REGEX_
+    private int number_get;
+    private int number_post;
+    private int total_time;
 
     public static void main(String [] args){
         new Main().go();
@@ -24,11 +25,16 @@ public class Main {
 
     public Main() {
         sc = new Scanner(System.in);
+        number_get = 0;
+        number_post = 0;
+        total_time = 0;
     }
 
     private void go() {
-        System.out.println("Enter url");
-        String input = sc.nextLine().trim();
+        //System.out.println("Enter url");
+        //String input = sc.nextLine().trim();
+
+        uri = "/ma/entry";
 
         BufferedReader reader = null;
         BufferedWriter writer = null;
@@ -38,14 +44,21 @@ public class Main {
             writer = new BufferedWriter(new FileWriter("out.log"));
             String line = null;
             while ((line = reader.readLine()) != null){
-                String uri = getURI(line);
-                if (uri.contains(input)){
-                    System.out.println(uri);
-                    break;
-                } else {
-                    continue;
+                if (containsUri(line)){
+                    //gOrP(line);
+                    System.out.println(1);
+                    Tester(line);
                 }
+//                String uri = getURI(line);
+//                if (uri.contains(input)){
+//                    gOrP(line);
+//                    //break;
+//                } else {
+//                    continue;
+//                }
+                //uriTester(line);
             }
+            //System.out.println(number_get);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -61,16 +74,50 @@ public class Main {
 
     }
 
-
-    private String getURI(String line) {
-        Pattern p = Pattern.compile(REGEX_URI);
+    private void Tester(String line) {
+        String regex = "(\\s[GP])+";
+        Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(line);
         if (m.find()){
-            return m.group();
-        } else {
-            System.out.println("URI does not exist. Exiting!!!");
-            System.exit(0);
+            System.out.println(m.group());
         }
-        return null;
     }
+
+    private boolean containsUri(String line) {
+        String regex = "\\[" + uri + "\\]";
+
+        boolean b = Pattern.matches(regex, line);
+        System.out.println(b);
+        return b;
+    }
+
+
+    private void gOrP(String line) {
+        String regex = "\\s[GP]";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(line);
+        if (m.find()){
+            String s = m.group().trim();
+            System.out.println(s);
+//            if (s.equals("G")){
+//                number_get++;
+//            } else {
+//                number_post++;
+//            }
+            //System.out.println(1);
+        }
+    }
+
+
+//    private String getURI(String line) {
+//        Pattern p = Pattern.compile(REGEX_URI);
+//        Matcher m = p.matcher(line);
+//        if (m.find()){
+//            return m.group();
+//        } else {
+//            System.out.println("URI does not exist. Exiting!!!");
+//            //System.exit(0);
+//        }
+//        return null;
+//    }
 }
