@@ -28,7 +28,7 @@ public class Main {
 
     private void go() {
         System.out.println("Enter url");
-        //input = sc.nextLine().trim();
+        String input = sc.nextLine().trim();
 
         BufferedReader reader = null;
         BufferedWriter writer = null;
@@ -39,10 +39,12 @@ public class Main {
             String line = null;
             while ((line = reader.readLine()) != null){
                 String uri = getURI(line);
-                if (uri == null){
+                if (uri.contains(input)){
+                    System.out.println(uri);
+                    break;
+                } else {
                     continue;
                 }
-                System.out.println(uri);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -63,9 +65,11 @@ public class Main {
     private String getURI(String line) {
         Pattern p = Pattern.compile(REGEX_URI);
         Matcher m = p.matcher(line);
-        String s = "";
         if (m.find()){
             return m.group();
+        } else {
+            System.out.println("URI does not exist. Exiting!!!");
+            System.exit(0);
         }
         return null;
     }
