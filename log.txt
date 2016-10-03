@@ -1,0 +1,2 @@
+log 1 : hello
+log 2 : world
