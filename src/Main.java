@@ -16,6 +16,7 @@ public class Main {
 
     private static final String REGEX_HOUR = "\\d{2}:\\d{2}:\\d{2}";
     private static final String REGEX_URI = "URI\\=\\[.*\\]";
+    //private static final String REGEX_
 
     public static void main(String [] args){
         new Main().go();
@@ -27,7 +28,7 @@ public class Main {
 
     private void go() {
         System.out.println("Enter url");
-        //url = sc.nextLine().trim();
+        //input = sc.nextLine().trim();
 
         BufferedReader reader = null;
         BufferedWriter writer = null;
@@ -37,7 +38,11 @@ public class Main {
             writer = new BufferedWriter(new FileWriter("out.log"));
             String line = null;
             while ((line = reader.readLine()) != null){
-                process(line);
+                String uri = getURI(line);
+                if (uri == null){
+                    continue;
+                }
+                System.out.println(uri);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -55,11 +60,13 @@ public class Main {
     }
 
 
-    private void process(String line) {
+    private String getURI(String line) {
         Pattern p = Pattern.compile(REGEX_URI);
         Matcher m = p.matcher(line);
-        while(m.find()){
-            System.out.println(m.group());
+        String s = "";
+        if (m.find()){
+            return m.group();
         }
+        return null;
     }
 }

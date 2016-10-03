@@ -70,7 +70,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="2" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+            <state line="65" column="22" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1170">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -505,7 +505,7 @@
       <updated>1475475055604</updated>
       <workItem from="1475475056766" duration="379000" />
       <workItem from="1475475443233" duration="4000" />
-      <workItem from="1475475462198" duration="7173000" />
+      <workItem from="1475475462198" duration="7777000" />
     </task>
     <task id="LOCAL-00001" summary="intial commit">
       <created>1475488552521</created>
@@ -515,11 +515,15 @@
       <created>1475491007567</created>
       <updated>1475491007567</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="regex code added&#10;">
+      <created>1475491190355</created>
+      <updated>1475491190355</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7556000" />
+    <option name="totallyTimeSpent" value="8160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1055" extended-state="0" />
@@ -567,7 +571,8 @@
     </option>
     <MESSAGE value="intial commit" />
     <MESSAGE value="regex code added" />
-    <option name="LAST_COMMIT_MESSAGE" value="regex code added" />
+    <MESSAGE value="regex code added&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="regex code added&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -618,7 +623,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="2" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+        <state line="65" column="22" selection-start="1688" selection-end="1688" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1170">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
