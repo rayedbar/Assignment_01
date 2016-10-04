@@ -111,6 +111,9 @@ public class Main {
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter("out.log"));
+            writer.write("Showing results for: " + uri);
+            writer.newLine();
+            writer.newLine();
             String s = "am";
             for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()){
                 int key = entry.getKey();
