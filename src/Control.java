@@ -8,7 +8,6 @@ import java.util.*;
  */
 public class Control {
 
-
     public String uri;
     public Parser parser;
 
@@ -61,10 +60,7 @@ public class Control {
     }
 
     public void sort(){
-
-
         List<Map.Entry<Integer,ArrayList<Integer>>> entries = new ArrayList<>(parser.map.entrySet());
-
         Collections.sort(entries, new Comparator<Map.Entry<Integer, ArrayList<Integer>>>() {
             @Override
             public int compare(Map.Entry<Integer, ArrayList<Integer>> integerArrayListEntry, Map.Entry<Integer, ArrayList<Integer>> integerArrayListEntry2) {
@@ -80,20 +76,10 @@ public class Control {
             }
 
         });
-
-        Map<Integer, ArrayList<Integer>> sortedmap = new LinkedHashMap<>();
-
+        Map<Integer, ArrayList<Integer>> sortedMap = new LinkedHashMap<>();
         for (Map.Entry<Integer,ArrayList<Integer>> e : entries) {
-//            System.out.println(e.getKey() + " : [" + e.getValue().get(0)
-//                    + ", " + e.getValue().get(1) + "]");
-            sortedmap.put(e.getKey(), e.getValue());
+            sortedMap.put(e.getKey(), e.getValue());
         }
-
-        parser.map = sortedmap;
-
+        parser.map = sortedMap;
     }
-
-
-
-
 }

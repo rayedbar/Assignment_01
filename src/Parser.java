@@ -14,7 +14,6 @@ import java.util.regex.Pattern;
  */
 public class Parser {
 
-    private String uri;
     public Map<Integer, ArrayList<Integer>> map;
 
     public Parser(){
@@ -31,20 +30,18 @@ public class Parser {
     public void parse(String uri) {
         BufferedReader reader;
         boolean flag = false;
-
         try {
             reader = new BufferedReader(new FileReader("sample.log"));
             String line;
             while ((line = reader.readLine()) != null){
                 if (containsUri(uri, line)){
-                    parseLog(line);
+                    parseLine(line);
                     flag = true;
                 }
             }
-            if (flag){
-                //writeResults();
-            } else {
-                System.out.println("URI DOESN'T MATCH. PLEASE TRY AGAIN!!");
+            if (!flag){
+                System.out.println("URI DOESN'T MATCH. PLEASE TRY AGAIN. Exiting!!!");
+                System.exit(0);
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -54,15 +51,12 @@ public class Parser {
         }
     }
 
-
-
     private boolean containsUri(String uri, String line) {
         String regex = ".*\\[" + uri + "\\].*";
         return Pattern.matches(regex, line);
     }
 
-    private void parseLog(String line) {
-
+    private void parseLine(String line) {
         int hour = getHour(line);
         String regex = "\\s[GP]";
         Pattern p = Pattern.compile(regex);
@@ -75,11 +69,8 @@ public class Parser {
                 map.get(hour).set(1, map.get(hour).get(1) + 1);
             }
         }
-        serverTime(hour, line);
+        getServerTime(hour, line);
     }
-
-
-
 
     private int getHour(String line){
         String regex = "\\d{2}:\\d{2}:\\d{2}";
@@ -93,7 +84,7 @@ public class Parser {
         return hour;
     }
 
-    private void serverTime(int hour, String line) {
+    private void getServerTime(int hour, String line) {
         String regex = "\\d+ms";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(line);
@@ -104,6 +95,5 @@ public class Parser {
             map.get(hour).set(2, map.get(hour).get(2) + time);
         }
     }
-
 }
 

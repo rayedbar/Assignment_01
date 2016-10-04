@@ -5,25 +5,11 @@
  */
 
 public class Main {
-
-
     public static void main(String[] args) {
-
-
         Control control = new Control();
         control.parseLog();
         //control.writeResults();
         control.sort();
         control.writeResults();
-        //control.process();
-//        Parser parser = new Parser();
-//        parser.parse();
-        //parser.sort();
-        //parser.writeResults();
-
     }
-
-
-
-
 }

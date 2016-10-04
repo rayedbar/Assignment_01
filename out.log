@@ -1,7 +1,6 @@
-Showing results for: /ma/padmin/popup/title
+Showing results for: /ma/newfpage/admin
 
      TIME          GET            POST             SERVER TIME
-11:00 am -> 1 GET Requests, 1 POST Requests, Total Server Time = 10ms
 00:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 01:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 02:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
@@ -13,6 +12,7 @@ Showing results for: /ma/padmin/popup/title
 08:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 09:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 10:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
+11:00 am -> 11 GET Requests, 0 POST Requests, Total Server Time = 459ms
 12:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 13:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 14:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
