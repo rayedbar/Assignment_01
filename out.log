@@ -1,4 +1,4 @@
-Showing results for: /ma/fpage/dashboard
+Showing results for: /ma/common/loginDetail
 
 00:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 01:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
@@ -11,7 +11,7 @@ Showing results for: /ma/fpage/dashboard
 08:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 09:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 10:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
-11:00 am -> 9 GET Requests, 0 POST Requests, Total Server Time = 0ms
+11:00 am -> 1 GET Requests, 1 POST Requests, Total Server Time = 127ms
 12:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 13:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 14:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms

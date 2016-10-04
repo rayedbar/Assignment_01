@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53b2b4fc-3ad4-4683-8530-f8dbb1d96539" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.log" afterPath="$PROJECT_DIR$/out.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -68,22 +67,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="73" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.54908484" vertical-offset="405" max-vertical-offset="2310">
+            <state line="52" column="73" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2310">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="out.log" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="out.log" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/out.log">
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="1767" selection-end="1767" vertical-scroll-proportion="-15.576923" vertical-offset="0" max-vertical-offset="495">
+            <state line="27" column="0" selection-start="1772" selection-end="1772" vertical-scroll-proportion="0.70434785" vertical-offset="0" max-vertical-offset="575">
               <folding />
             </state>
           </provider>
@@ -92,7 +91,7 @@
       <file leaf-file-name="sample.log" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="177" selection-start="18694" selection-end="18713" vertical-scroll-proportion="24.74074" vertical-offset="1973" max-vertical-offset="2985">
+            <state line="97" column="180" selection-start="20655" selection-end="20677" vertical-scroll-proportion="-6.9259257" vertical-offset="1268" max-vertical-offset="2985">
               <folding />
             </state>
           </provider>
@@ -114,6 +113,7 @@
         <option value="$PROJECT_DIR$/src/log.txt" />
         <option value="$PROJECT_DIR$/out.log" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/sample.log" />
       </list>
     </option>
   </component>
@@ -493,7 +493,7 @@
       <workItem from="1475475462198" duration="8349000" />
       <workItem from="1475493288808" duration="5503000" />
       <workItem from="1475498838740" duration="1671000" />
-      <workItem from="1475550098128" duration="842000" />
+      <workItem from="1475550098128" duration="1004000" />
     </task>
     <task id="LOCAL-00001" summary="intial commit">
       <created>1475488552521</created>
@@ -523,11 +523,15 @@
       <created>1475550652634</created>
       <updated>1475550652634</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added User input Safety&#10;">
+      <created>1475550965438</created>
+      <updated>1475550965438</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16748000" />
+    <option name="totallyTimeSpent" value="16910000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -551,7 +555,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1055" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19850586" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -563,7 +567,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32977587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32977587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.357524" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -625,7 +629,8 @@
     <MESSAGE value="regex code added" />
     <MESSAGE value="regex code added&#10;" />
     <MESSAGE value="Output Enhancement&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Output Enhancement&#10;" />
+    <MESSAGE value="Added User input Safety&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added User input Safety&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -711,7 +716,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="177" selection-start="18694" selection-end="18713" vertical-scroll-proportion="24.74074" vertical-offset="1973" max-vertical-offset="2985">
+        <state line="97" column="180" selection-start="20655" selection-end="20677" vertical-scroll-proportion="-6.9259257" vertical-offset="1268" max-vertical-offset="2985">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="73" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2310">
           <folding />
         </state>
       </provider>
@@ -721,14 +733,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="1767" selection-end="1767" vertical-scroll-proportion="-15.576923" vertical-offset="0" max-vertical-offset="495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="73" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.54908484" vertical-offset="405" max-vertical-offset="2310">
+        <state line="27" column="0" selection-start="1772" selection-end="1772" vertical-scroll-proportion="0.70434785" vertical-offset="0" max-vertical-offset="575">
           <folding />
         </state>
       </provider>
