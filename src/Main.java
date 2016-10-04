@@ -67,10 +67,11 @@ public class Main {
     }
 
     private boolean containsUri(String line) {
-        String regex = "\\[" + uri + "\\]";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(line);
-        return matcher.find() ? true : false;
+        String regex = ".*\\[" + uri + "\\].*";
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(line);
+//        return matcher.find() ? true : false;
+        return Pattern.matches(regex, line);
     }
 
     private void parseLog(String line) {
@@ -126,6 +127,8 @@ public class Main {
             writer.write("Showing results for: " + uri);
             writer.newLine();
             writer.newLine();
+            writer.write("     TIME          GET            POST             SERVER TIME");
+            writer.newLine();
             String ampm = "am";
             for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()){
                 int key = entry.getKey();
@@ -139,8 +142,8 @@ public class Main {
                     zero = "0";
                 }
                 writer.write(zero + key + ":00 " + ampm + " -> " + values.get(0) + " GET Requests, " +
-                                        values.get(1) + " POST Requests, " + "Total Server Time = " +
-                                                values.get(2) + "ms");
+                                    values.get(1) + " POST Requests, " + "Total Server Time = " +
+                                            values.get(2) + "ms");
                 writer.newLine();
             }
             writer.close();
