@@ -1,6 +1,7 @@
-Showing results for: /ma/entry
+Showing results for: /ma/padmin/popup/title
 
      TIME          GET            POST             SERVER TIME
+11:00 am -> 1 GET Requests, 1 POST Requests, Total Server Time = 10ms
 00:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 01:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 02:00 am -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
@@ -24,4 +25,3 @@ Showing results for: /ma/entry
 20:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 23:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
 22:00 pm -> 0 GET Requests, 0 POST Requests, Total Server Time = 0ms
-11:00 pm -> 3 GET Requests, 0 POST Requests, Total Server Time = 11ms

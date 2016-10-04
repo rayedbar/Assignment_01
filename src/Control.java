@@ -68,7 +68,15 @@ public class Control {
         Collections.sort(entries, new Comparator<Map.Entry<Integer, ArrayList<Integer>>>() {
             @Override
             public int compare(Map.Entry<Integer, ArrayList<Integer>> integerArrayListEntry, Map.Entry<Integer, ArrayList<Integer>> integerArrayListEntry2) {
-                return integerArrayListEntry.getValue().get(2).compareTo(integerArrayListEntry2.getValue().get(2));
+                int serverTime = integerArrayListEntry2.getValue().get(2).compareTo(integerArrayListEntry.getValue().get(2));
+                if (serverTime == 0){
+                    int postTime = integerArrayListEntry2.getValue().get(1).compareTo(integerArrayListEntry.getValue().get(1));
+                    if (postTime == 0){
+                        int getTime = integerArrayListEntry2.getValue().get(0).compareTo(integerArrayListEntry.getValue().get(0));
+                        return getTime;
+                    }
+                }
+                return serverTime;
             }
 
         });
