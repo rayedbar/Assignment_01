@@ -25,7 +25,7 @@ public class Main {
 
     private void initializeMap() {
         for (int i = 0;  i < 25; ++i){
-            map.put(i, new ArrayList<Integer>(Collections.nCopies(3,0)));
+            map.put(i, new ArrayList<>(Collections.nCopies(3,0)));
         }
     }
 
@@ -35,12 +35,12 @@ public class Main {
         System.out.println("Enter uri");
         uri = sc.nextLine().trim();
 
-        BufferedReader reader = null;
+        BufferedReader reader;
         boolean flag = false;
 
         try {
             reader = new BufferedReader(new FileReader("sample.log"));
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null){
                 if (containsUri(line)){
                     parseLog(line);
@@ -52,18 +52,12 @@ public class Main {
             } else {
                 System.out.println("URI DOESN'T MATCH. PLEASE TRY AGAIN!!");
             }
+            reader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
-
     }
 
     private boolean containsUri(String line) {
@@ -113,7 +107,7 @@ public class Main {
 
     private void printResults() {
         System.out.println("See out.log");
-        BufferedWriter writer = null;
+        BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter("out.log"));
             writer.write("Showing results for: " + uri);
