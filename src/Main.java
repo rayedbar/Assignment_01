@@ -36,6 +36,7 @@ public class Main {
         uri = sc.nextLine().trim();
 
         BufferedReader reader = null;
+        boolean flag = false;
 
         try {
             reader = new BufferedReader(new FileReader("sample.log"));
@@ -43,9 +44,14 @@ public class Main {
             while ((line = reader.readLine()) != null){
                 if (containsUri(line)){
                     parseLog(line);
+                    flag = true;
                 }
             }
-            printResults();
+            if (flag){
+                printResults();
+            } else {
+                System.out.println("URI DOESN'T MATCH. PLEASE TRY AGAIN!!");
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -120,19 +126,19 @@ public class Main {
             writer.write("Showing results for: " + uri);
             writer.newLine();
             writer.newLine();
-            String s = "am";
+            String ampm = "am";
             for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()){
                 int key = entry.getKey();
                 ArrayList<Integer> values = entry.getValue();
                 if (key > 11){
-                    s = "pm";
+                    ampm = "pm";
                 }
                 int length = String.valueOf(key).length();
-                String time = "";
+                String zero = "";
                 if (length == 1){
-                    time = "0";
+                    zero = "0";
                 }
-                writer.write(time + key + ":00 " + s + " -> " + values.get(0) + " GET Requests, " +
+                writer.write(zero + key + ":00 " + ampm + " -> " + values.get(0) + " GET Requests, " +
                                         values.get(1) + " POST Requests, " + "Total Server Time = " +
                                                 values.get(2) + "ms");
                 writer.newLine();
