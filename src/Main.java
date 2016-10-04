@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,55 +11,40 @@ import java.util.regex.Pattern;
 
 public class Main {
 
+    private Map<Integer, ArrayList<Integer>> map;
     private String uri;
-    private Scanner sc;
-
-    private static final String REGEX_HOUR = "\\d{2}:\\d{2}:\\d{2}";
-    private int number_get;
-    private int number_post;
-    private int total_time;
 
     public static void main(String [] args){
         new Main().go();
     }
 
     public Main() {
-        sc = new Scanner(System.in);
-        number_get = 0;
-        number_post = 0;
-        total_time = 0;
+        map = new HashMap<>(24);
+        initializeMap();
+    }
+
+    private void initializeMap() {
+        for (int i = 0;  i < 25; ++i){
+            map.put(i, new ArrayList<Integer>(Collections.nCopies(3,0)));
+        }
     }
 
     private void go() {
-        //System.out.println("Enter url");
-        //String input = sc.nextLine().trim();
-
-        uri = "/ma/entry";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter uri");
+        uri = sc.nextLine().trim();
 
         BufferedReader reader = null;
-        BufferedWriter writer = null;
 
         try {
             reader = new BufferedReader(new FileReader("sample.log"));
-            writer = new BufferedWriter(new FileWriter("out.log"));
             String line = null;
             while ((line = reader.readLine()) != null){
                 if (containsUri(line)){
-                    countGorP(line);
-
-                    //System.out.println(1);
-                    //Tester(line);
+                    calculate(line);
                 }
-//                String uri = getURI(line);
-//                if (uri.contains(input)){
-//                    countGorP(line);
-//                    //break;
-//                } else {
-//                    continue;
-//                }
-                //uriTester(line);
             }
-            System.out.println(number_get);
+            printResults();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -67,21 +52,11 @@ public class Main {
         } finally {
             try {
                 reader.close();
-                writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-    }
-
-    private void Tester(String line) {
-        String regex = "(\\s[GP])+";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(line);
-        if (m.find()){
-            System.out.println(m.group(1));
-        }
     }
 
     private boolean containsUri(String line) {
@@ -91,33 +66,66 @@ public class Main {
         return matcher.find() ? true : false;
     }
 
-
-    private void countGorP(String line) {
+    private void calculate(String line) {
+        int hour = getHour(line);
         String regex = "\\s[GP]";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(line);
         if (m.find()){
             String s = m.group().trim();
-            //System.out.println(s);
             if (s.equals("G")){
-                number_get++;
+                map.get(hour).set(0, map.get(hour).get(0) + 1);
             } else {
-                number_post++;
+                map.get(hour).set(1, map.get(hour).get(1) + 1);
             }
-            //System.out.println(1);
+        }
+        serverTime(hour, line);
+    }
+
+    private int getHour(String line){
+        String regex = "\\d{2}:\\d{2}:\\d{2}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(line);
+        int hour = -1;
+        if (matcher.find()){
+            String [] time = matcher.group().trim().split(":");
+            hour = Integer.parseInt(time[0]);
+        }
+        return hour;
+    }
+
+    private void serverTime(int hour, String line) {
+        String regex = "\\d+ms";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(line);
+        if (matcher.find()){
+            String s = matcher.group();
+            System.out.println(s);
+            String si = s.replace("ms", "");
+            int time = Integer.parseInt(si.trim());
+            map.get(hour).set(2, map.get(hour).get(2) + time);
         }
     }
 
-
-//    private String getURI(String line) {
-//        Pattern p = Pattern.compile(REGEX_URI);
-//        Matcher m = p.matcher(line);
-//        if (m.find()){
-//            return m.group();
-//        } else {
-//            System.out.println("URI does not exist. Exiting!!!");
-//            //System.exit(0);
-//        }
-//        return null;
-//    }
+    private void printResults() {
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter("out.log"));
+            String s = "am";
+            for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()){
+                int key = entry.getKey();
+                ArrayList<Integer> values = entry.getValue();
+                if (key > 11){
+                    s = "pm";
+                }
+                writer.write(key + ":00 " + s + " -> " + values.get(0) + " GET Requests, " +
+                        values.get(1) + " POST Requests, " + "Total Server Time = " +
+                            values.get(2) + "ms");
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
