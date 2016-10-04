@@ -121,9 +121,14 @@ public class Main {
                 if (key > 11){
                     s = "pm";
                 }
-                writer.write(key + ":00 " + s + " -> " + values.get(0) + " GET Requests, " +
-                        values.get(1) + " POST Requests, " + "Total Server Time = " +
-                            values.get(2) + "ms");
+                int length = String.valueOf(key).length();
+                String time = "";
+                if (length == 1){
+                    time = "0";
+                }
+                writer.write(time + key + ":00 " + s + " -> " + values.get(0) + " GET Requests, " +
+                                        values.get(1) + " POST Requests, " + "Total Server Time = " +
+                                                values.get(2) + "ms");
                 writer.newLine();
             }
             writer.close();
