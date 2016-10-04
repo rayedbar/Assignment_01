@@ -31,6 +31,7 @@ public class Main {
 
     private void go() {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Enter uri");
         uri = sc.nextLine().trim();
 
@@ -41,7 +42,7 @@ public class Main {
             String line = null;
             while ((line = reader.readLine()) != null){
                 if (containsUri(line)){
-                    calculate(line);
+                    parseLog(line);
                 }
             }
             printResults();
@@ -66,7 +67,7 @@ public class Main {
         return matcher.find() ? true : false;
     }
 
-    private void calculate(String line) {
+    private void parseLog(String line) {
         int hour = getHour(line);
         String regex = "\\s[GP]";
         Pattern p = Pattern.compile(regex);
@@ -74,8 +75,10 @@ public class Main {
         if (m.find()){
             String s = m.group().trim();
             if (s.equals("G")){
+                //System.out.println("GET");
                 map.get(hour).set(0, map.get(hour).get(0) + 1);
             } else {
+                //System.out.println("POST");
                 map.get(hour).set(1, map.get(hour).get(1) + 1);
             }
         }
@@ -91,6 +94,7 @@ public class Main {
             String [] time = matcher.group().trim().split(":");
             hour = Integer.parseInt(time[0]);
         }
+        //System.out.println("Time: " + hour + ":00");
         return hour;
     }
 
@@ -100,14 +104,16 @@ public class Main {
         Matcher matcher = pattern.matcher(line);
         if (matcher.find()){
             String s = matcher.group();
-            System.out.println(s);
+            //System.out.println(s);
             String si = s.replace("ms", "");
             int time = Integer.parseInt(si.trim());
+            //System.out.println("Time: " + time);
             map.get(hour).set(2, map.get(hour).get(2) + time);
         }
     }
 
     private void printResults() {
+        System.out.println("See out.log");
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter("out.log"));
