@@ -68,9 +68,6 @@ public class Main {
 
     private boolean containsUri(String line) {
         String regex = ".*\\[" + uri + "\\].*";
-//        Pattern pattern = Pattern.compile(regex);
-//        Matcher matcher = pattern.matcher(line);
-//        return matcher.find() ? true : false;
         return Pattern.matches(regex, line);
     }
 
@@ -82,10 +79,8 @@ public class Main {
         if (m.find()){
             String s = m.group().trim();
             if (s.equals("G")){
-                //System.out.println("GET");
                 map.get(hour).set(0, map.get(hour).get(0) + 1);
             } else {
-                //System.out.println("POST");
                 map.get(hour).set(1, map.get(hour).get(1) + 1);
             }
         }
@@ -101,7 +96,6 @@ public class Main {
             String [] time = matcher.group().trim().split(":");
             hour = Integer.parseInt(time[0]);
         }
-        //System.out.println("Time: " + hour + ":00");
         return hour;
     }
 
@@ -111,10 +105,8 @@ public class Main {
         Matcher matcher = pattern.matcher(line);
         if (matcher.find()){
             String s = matcher.group();
-            //System.out.println(s);
             String si = s.replace("ms", "");
             int time = Integer.parseInt(si.trim());
-            //System.out.println("Time: " + time);
             map.get(hour).set(2, map.get(hour).get(2) + time);
         }
     }
