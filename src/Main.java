@@ -82,6 +82,18 @@ public class Main {
         serverTime(hour, line);
     }
 
+    private int getHour(String line){
+        String regex = "\\d{2}:\\d{2}:\\d{2}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(line);
+        int hour = -1;
+        if (matcher.find()){
+            String [] time = matcher.group().trim().split(":");
+            hour = Integer.parseInt(time[0]);
+        }
+        return hour;
+    }
+
     private void serverTime(int hour, String line) {
         String regex = "\\d+ms";
         Pattern pattern = Pattern.compile(regex);
@@ -93,18 +105,6 @@ public class Main {
             int time = Integer.parseInt(si.trim());
             map.get(hour).set(2, map.get(hour).get(2) + time);
         }
-    }
-
-    private int getHour(String line){
-        String regex = "\\d{2}:\\d{2}:\\d{2}";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(line);
-        int hour = -1;
-        if (matcher.find()){
-            String [] time = matcher.group().trim().split(":");
-            hour = Integer.parseInt(time[0]);
-        }
-        return hour;
     }
 
     private void printResults() {
@@ -119,7 +119,8 @@ public class Main {
                     s = "pm";
                 }
                 writer.write(key + ":00 " + s + " -> " + values.get(0) + " GET Requests, " +
-                        values.get(1) + " POST Requests, " + "Total Server Time = " + values.get(2) + "ms");
+                        values.get(1) + " POST Requests, " + "Total Server Time = " +
+                            values.get(2) + "ms");
                 writer.newLine();
             }
             writer.close();
